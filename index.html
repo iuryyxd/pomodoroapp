@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro App</title>
+
+    <!-- SCRIPTS -->
+    <script src="./src/js/index.js" defer type="text/javascript"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+<body>
+    
+
+    <main>
+        <header>
+            <h1>Pomodoro Timer</h1>
+        </header>
+
+        <div class="input-window">
+            <div class="timers">
+                <div class="timer-container">
+                    <label for="work-timer">Tempo de produção</label>
+                    <input type="number" name="workTimer" class="work-timer" required onInput="this.value = this.value.slice(0, 2)">
+                </div>
+                
+                <div class="timer-container">      
+                    <label for="pause-timer">Tempo de descanso</label>
+                    <input type="number" name="pauseTimer" class="pause-timer" required onInput="this.value = this.value.slice(0, 2)">
+                </div>
+            </div>
+
+            <button class="start-button">Iniciar</button>
+        </div>
+
+        <div class="timer-window off">
+            <div class="counter">
+                <span></span>
+            </div>
+
+            <span class="timer-mode">Tempo de produção...</span>
+
+            <div class="counter-buttons">
+                <button class="pause-button button">Pausar</button>
+                <button class="reset-button button">Resetar</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <audio src="./src/audios/lofi.mp3" style="display: none;" class="lofi-audio"></audio>
+    <audio src="./src/audios/ringtone.mp3" style="display: none;" class="alarm-audio"></audio>
+</body>
+</html>
