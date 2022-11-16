@@ -13,14 +13,15 @@ timermode = document.querySelector(".timer-mode")
 let startInterval, pauseInterval, isStartRunning = false, isPauseRunning = false, sec1 = 59, min1 = parseInt(workInput.value) - 1, sec2 = 59, min2 = pauseInput.value, isPause = false;
 
 function startTimer(){
-    
+
+    if(workInput.value == "" || pauseInput.value == "") return alert('Você precisa preencher os campos abaixo!')
+    if(parseInt(workInput.value) <= 0 || parseInt(workInput.value) > 60) return alert("Os valores do tempo de produção só podem ser entre 1 e 60 minutos!")
+    if(parseInt(pauseInput.value) <= 0 || parseInt(pauseInput.value) > 60) return alert("Os valores do tempo de pausa só podem ser entre 1 e 60 minutos!")
+
     if(isNaN(min1)) min1 = parseInt(workInput.value - 1)
     min2 = parseInt(pauseInput.value - 1)
 
     if(!isStartRunning) {
-        if(workInput.value == "" || pauseInput.value == "") return alert('Você precisa preencher os campos abaixo!')
-        if(parseInt(workInput.value) <= 0 || parseInt(workInput.value) > 60) return alert("Os valores do tempo de produção só podem ser entre 1 e 60 minutos!")
-        if(parseInt(pauseInput.value) <= 0 || parseInt(pauseInput.value) > 60) return alert("Os valores do tempo de pausa só podem ser entre 1 e 60 minutos!")
         
         if(!isPause && !isPauseRunning) {
             classChange()
